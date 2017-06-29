@@ -68,13 +68,6 @@ class Config
     }
 
     private function userConf(){
-        return array(
-            "MYSQL"=>array(
-                "HOST"=>"127.0.0.1",
-                "USER"=>"root",
-                "PASSWORD"=>"123456",
-                "DB_NAME"=>"blog2",
-            ),
-        );
+        return array();
     }
 }

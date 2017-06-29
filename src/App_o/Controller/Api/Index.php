@@ -3,21 +3,23 @@
  * Created by PhpStorm.
  * User: yf
  * Date: 2017/3/15
- * Time: 下午8:22
+ * Time: 下午8:21
  */
 
 namespace App\Controller\Api;
 
 
 use Core\AbstractInterface\AbstractController;
+use Core\Http\Message\UploadFile;
 
-class Auth extends AbstractController
+class Index extends AbstractController
 {
 
     function index()
     {
         // TODO: Implement index() method.
-        $this->response()->write("this is api auth index");/*  url:domain/api/auth/index.html  domain/api/auth/   */
+//        $this->response()->write("this is api index");/*  url:domain/api/index.html  domain/api/  */
+        $this->response()->write('indexddddd');
     }
 
     function onRequest($actionName)
@@ -35,6 +37,9 @@ class Auth extends AbstractController
         // TODO: Implement afterResponse() method.
     }
     function test(){
-        $this->response()->write("this is api test");
+        $file = $this->request()->getUploadedFile("a");
+        if($file instanceof UploadFile){
+            $file->moveTo(ROOT."/Temp/a.json");
+        }
     }
 }

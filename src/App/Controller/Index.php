@@ -10,7 +10,9 @@ namespace App\Controller;
 
 
 use Core\AbstractInterface\AbstractController;
+use Core\Http\Message\Status;
 use Core\Swoole\SwooleHttpServer;
+use Core\UrlParser;
 
 class Index extends AbstractController
 {
@@ -27,7 +29,7 @@ class Index extends AbstractController
         p{ line-height: 1.8em; font-size: 36px } a,a:hover{color:blue;}
     </style>
     <div style="padding: 24px 48px;">
-        <h1>:)</h1><p>欢迎使用<b> easySwoole</b></p><br/>
+        <h1>:)</h1><p>欢迎使用<b> easyPHP-Swoole</b></p><br/>
     </div>
  ');/*  url:domain/index.html  domain/   domain  */
     }
@@ -40,6 +42,7 @@ class Index extends AbstractController
     function actionNotFount($actionName = null, $arguments = null)
     {
         // TODO: Implement actionNotFount() method.
+        $this->response()->withStatus(Status::CODE_NOT_FOUND);
     }
 
     function afterResponse()
